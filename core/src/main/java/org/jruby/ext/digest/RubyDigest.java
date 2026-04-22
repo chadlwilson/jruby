@@ -101,7 +101,8 @@ public class RubyDigest {
 
     public static void createDigest(ThreadContext context) {
         try {
-            provider = (Provider) Class.forName(PROVIDER).getConstructor().newInstance();
+            final Ruby runtime = context.runtime;
+            provider = (Provider) runtime.getJavaSupport().loadJavaClass(PROVIDER).getConstructor().newInstance();
         } catch (Throwable t) { /* provider is not available */ }
 
         var Digest = defineModule(context, "Digest").
