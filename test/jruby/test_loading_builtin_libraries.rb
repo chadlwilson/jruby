@@ -12,8 +12,7 @@ class TestLoadingBuiltinLibraries < Test::Unit::TestCase
       require 'digest'
       require 'digest'
       require 'digest/md5'
-      # rmd160 requires BouncyCastle
-      #require 'digest/rmd160'
+      require 'digest/rmd160'
       require 'digest/sha1'
       require 'digest/sha2'
       require 'bigdecimal'
